@@ -84,6 +84,7 @@ Physical specs:
 
 Other specs:
 
+ - On board MAP and AAP sensors, both barbed (dual footprint?)
  - CPU regulator always connected to power
  - ADC/Acc regulator enable pin controlled by CPU
  - CEL error light on SM load/run pin
@@ -104,6 +105,7 @@ Other specs:
 Nice to haves:
 
  - Prototyping region - if spare space is available
+ - IAP Intercooler Absolute Pressure sensor - dream
  - RTC chip on board - optional (requires dual regulators + key-on input
  - Knock sensing interface - dream
  - EGT thermocouple driver - dream (requires stable precision 12v supply)
