@@ -21,8 +21,96 @@ and links for this project and all of the other aspects of the FreeEMS project.
 
 ### Goals
 
-This section is for the goals, plans, specs, design decisions and reasoning. It
-is to be filled out soon!
+These may be too ambitious and can be cut back inline with reality when required.
+
+Core IO specs:
+
+ - 1 FTDI USB (bus powered) + opto couplers for inverter powered laptops 
+ - 2 RPM/Position inputs via MAX99xx devices (configurable: VR OR Hall/Opto)
+ - 8 standard analogue inputs (aap/mat for later, tps/o2 optional)
+ - 6 ignition drives (low current) (min 4)
+ - 12 injector drives (high impedance) (min 8)
+ - 3 ground "input" connections (CPU/ADC ref, Inj gnd(s), ACC gnd(s))
+ - 3 ~12v connections (Const pwr, switched ADC pwr, switched BRV/Key signal)
+ - 1 overkill fuel pump relay drive (autofet)
+ - 1 ignition on 12v key input signal
+ - 2 SM load/run external interface pins
+ - 2 Ignition polarity interface pins
+ - 6 (or more) ground output pins for (ext map, tps, iat, cht, mat, CAS)
+ - 2 RPM/Position input grounds for VR use
+ - 2 switched 5v outputs for TPS and ext MAP
+
+50 core connections, 18 high current, 32 low current.
+Perhaps add 11 more ground pins and bring each injector driver in and out.
+That would add up to 29 high current and 32 low current (61).
+Perhaps route USB pins out through connector too, adding 5 or so more.
+
+Fuel injector and ignition drive detail:
+
+ - Easy jumpering of T2-7 to either Inj or Ign channels (temporary)
+ - 12 high Z injector drivers (autofet + resistor)
+ - OR 12 low Z injector drivers (darlington + lm1949)
+ - IF low Z, then easy to bridge chip out and install autofets
+ - 6 FET driver style low current ignition outputs
+ - Ignition outputs configurable in polarity (invert/direct)
+ - Ignition outputs default polarity for 12v high = dwell
+ - Ignition outputs polarity override through connector
+ - Ignition outputs configurable in voltage (5V/~12V)
+ - Ignition outputs through on board drivers (MAYBE)
+
+Spare IO specs:
+
+ - 8 PWM outputs with autofets (usable as GP inputs too?)
+ - 8 Spare ADC inputs (configurable as thermistor or GP)
+ - 8 low level digital GPIO channels (bullet proof)
+ - All spare CPU pins on internal headers
+ - At least one SPI header
+ - At least one CAN header
+ - At least one I2C header
+ - At least one SCI header
+
+24 spare connections, 8 high current, 16 low current.
+Perhaps add 8 more ground pins and bring each PWM driver in and out.
+That would add up to 16 high current and 16 low current (32).
+
+Physical specs:
+
+ - 160x100 eurocard PCB (2 layer for easy debug)
+ - Single board design with connector(s) for up to ~100 pins
+ - All externally exposed CPU pins buffered/protected
+ - All high current devices to220 staggered leg format
+ - All high current drivers with isolated grounds
+ - All other componentry SMD (large and common as possible)
+
+Other specs:
+
+ - CPU regulator always connected to power
+ - ADC/ACC regulator enable pin controlled by CPU
+ - CEL error light on SM load/run pin
+ - SM load/run pins on a header and through the connector
+ - LEDs on RPM, Ign, Inj, FP, Main Pwr, Aux Pwr, USB TX/RX
+ - External MAP sensor connection
+ - Vias with sufficient pad to solder to
+ - Light PCB colour scheme for easy debug during dev
+ - Test points on all key connections
+ - Independent filtering of battery reference
+ - Phyiscal separation of ADC/CPU from Inj/PWM stuff
+ - Star connections from regulator(s) to CPU
+ - Optimised clock circuit as per manual
+ - Optimised power CPU power filtering as per manual
+ - 144 pin CPU IF space constraints aren't hit with 112 pin CPU
+ - 8 extra ADC inputs in spare if 144 pin CPU is used
+
+Nice to haves:
+
+ - Prototyping region - if spare space
+ - RTC chip on board - optional
+ - Knock sensing interface - dream
+ - EGT thermocouple driver - dream
+ - SDCARD reader/writer slot - dream
+ - Stepper driver chip on board - dream
+
+TODO: Add design decisions and reasoning in clear language to go with list.
 
 ### History
 
@@ -38,7 +126,8 @@ due to a lack of accurate and complete documentation and an overly busy main
 developer who can't provide enough support, to this day, only one has run an
 engine.
 
-In the mean time, the Puma project took a change in direction in several key areas which I deemed too risky to be the cornerstone of our hardware experience.
+In the mean time, the Puma project took a change in direction in several key
+areas which I deemed too risky to be the cornerstone of our hardware experience.
 Once this became apparent, I started to make notes on what to fix, improve,
 change and add from the Puma spin 1 design, and the Cheetah project will be
 result of those musings.
