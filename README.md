@@ -91,6 +91,7 @@ Other specs:
  - SM load/run pins on a header and through the connector
  - LEDs on RPM, ignition, injection, FP, main Power, Acc Power, USB TX/RX
  - External MAP sensor connection
+ - Weak (~100k) pull downs on core pins (FP, ignition, injector, Acc output)
  - Vias with sufficient pad to solder to
  - Light PCB colour scheme for easy debug during dev
  - Test points on all key connections
@@ -104,13 +105,13 @@ Other specs:
 
 Nice to haves:
 
- - Prototyping region - if spare space is available
- - IAP Intercooler Absolute Pressure sensor - dream
- - RTC chip on board - optional (requires dual regulators + key-on input
- - Knock sensing interface - dream
- - EGT thermocouple driver - dream (requires stable precision 12v supply)
- - SDCARD reader/writer slot - dream (requires dual regulators + key-on input)
- - Stepper driver chip on board - dream
+ - Prototyping region           - unlikely (only if spare space is available)
+ - IAP Intercooler Pressure     - dream    (non core, does not belong)
+ - RTC chip on board            - optional (requires dual regulators + key-on input)
+ - Knock sensing interface      - dream    (only really useful for mild setups)
+ - EGT thermocouple driver      - dream    (requires stable precision 12v supply)
+ - SDCARD reader/writer slot    - dream    (requires dual regulators + key-on input)
+ - Stepper driver chip on board - dream    (niche/minority requirement)
 
 TODO: Add design decisions and reasoning in clear language to go with list.
 
