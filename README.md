@@ -98,6 +98,7 @@ Other specs:
  - Independent filtering of battery reference
  - Physical separation of ADC/CPU from injection/PWM stuff
  - Star connections from regulator(s) to CPU
+ - Reverse polarity protection (FET crowbar? sshottky diodes?)
  - Optimised clock circuit as per manual
  - Optimised power CPU power filtering as per manual
  - 144 pin CPU IF space constraints aren't hit with 112 pin CPU
@@ -106,6 +107,8 @@ Other specs:
 Nice to haves:
 
  - Prototyping region           - unlikely (only if spare space is available)
+ - VR3/RPM3 (VVT/NDCAS)         - optional (most won't want/need this)
+ - 3-wire PWM Idle drive        - optional (only Toyota and BMW)
  - IAP Intercooler Pressure     - dream    (non core, does not belong)
  - RTC chip on board            - optional (requires dual regulators + key-on input)
  - Knock sensing interface      - dream    (only really useful for mild setups)
