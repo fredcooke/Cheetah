@@ -31,7 +31,7 @@ Core IO specs:
  - 6 ignition drives (low current) (min 4)
  - 12 injector drives (high impedance) (min 8)
  - 3 ground "input" connections (CPU/ADC reference, injector ground(s), Acc ground(s))
- - 3 "12V" connections (constant power, switched ADC power, switched BRV/key-on signal)
+ - 2 "12V" connections (constant power, switched BRV/key-on signal)
  - 1 overkill fuel pump relay drive (AutoFET)
  - 1 ignition on "12V" key input signal
  - 2 SM load/run external interface pins
