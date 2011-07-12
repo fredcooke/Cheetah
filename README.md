@@ -103,6 +103,7 @@ Other specs:
  - Reverse polarity protection (FET crowbar? sshottky diodes?)
  - Optimised clock circuit as per manual
  - Optimised power CPU power filtering as per manual
+ - Optimised ground planes under CPU as per manual
  - 144 pin CPU IF space constraints aren't hit with 112 pin CPU
  - 8 extra ADC inputs in spare if 144 pin CPU is used
  - BDM header (standard)
