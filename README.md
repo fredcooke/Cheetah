@@ -118,6 +118,7 @@ Nice to haves:
  - EGT thermocouple driver      - dream    (requires stable precision 12v supply)
  - SDCARD reader/writer slot    - dream    (requires dual regulators + key-on input)
  - Stepper driver chip on board - dream    (niche/minority requirement)
+ - USB power up for board       - dream    (of limited use (turn on the key))
 
 TODO: Add design decisions and reasoning in clear language to go with list.
 
