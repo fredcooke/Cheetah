@@ -47,6 +47,8 @@ Perhaps add 11 more ground pins and bring each injector driver in and out.
 That would add up to 29 high current and 32 low current (61).
 Perhaps route USB pins out through connector too, adding 5 or so more.
 
+Possibly separate configuration connections from main connector stuff in some way.
+
 Fuel injector and ignition drive detail:
 
  - Easy jumpering of T2-7 to either injection or ignition channels (temporary)
