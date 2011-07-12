@@ -83,6 +83,8 @@ Physical specs:
  - All high current devices TO220 staggered leg format
  - All high current drivers with isolated grounds
  - All other componentry SMD (large and common as possible)
+ - Proper provision for mounting reliably to a case
+ - Provision for mounting a smaller board above or below
 
 Other specs:
 
