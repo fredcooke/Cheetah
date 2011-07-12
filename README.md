@@ -119,6 +119,7 @@ Nice to haves:
  - SDCARD reader/writer slot    - dream    (requires dual regulators + key-on input)
  - Stepper driver chip on board - dream    (niche/minority requirement)
  - USB power up for board       - dream    (of limited use (turn on the key))
+ - LEDs on all digital GPIO     - dream    (good idea, thanks Abe)
 
 TODO: Add design decisions and reasoning in clear language to go with list.
 
