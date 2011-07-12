@@ -115,7 +115,6 @@ Nice to haves:
  - Prototyping region           - unlikely (only if spare space is available)
  - VR3/RPM3 (VVT/NDCAS)         - optional (most won't want/need this)
  - 3-wire PWM Idle drive        - optional (only Toyota and BMW)
- - IAP Intercooler Pressure     - dream    (non core, does not belong)
  - RTC chip on board            - optional (requires dual regulators + key-on input)
  - Knock sensing interface      - dream    (only really useful for mild setups)
  - EGT thermocouple driver      - dream    (requires stable precision 12v supply)
