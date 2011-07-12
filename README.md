@@ -19,6 +19,8 @@ on-board as quickly as possible.
 Please see [FreeEMS.org](http://freeems.org) for the most up to date information
 and links for this project and all of the other aspects of the FreeEMS project.
 
+At the end is a glossary which you may need to reference when reading the goals.
+
 ### Goals
 
 These may be too ambitious and can be cut back inline with reality when required.
