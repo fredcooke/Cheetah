@@ -51,7 +51,10 @@ Possibly separate configuration connections from main connector stuff in some wa
 
 Fuel injector and ignition drive detail:
 
- - Easy jumpering of T2-7 to either injection or ignition channels (temporary)
+ - Both ignition drivers and 6 injector drivers connected in parallel use upto 6 total
+ - T2-7 feed both ignition drivers and the first 6 injector drivers via 1k resistors
+ - B0-5 feed the first 6 injector drivers via unpopulated 1k resistor footprints
+ - Easy to swap resistors from T channels to B channels for bit bang injector control
  - 12 high Z injector drivers (AutoFET + resistor)
  - OR 12 low Z injector drivers (darlington + LM1949)
  - IF low Z, then easy to bridge chip out and install autofets
@@ -60,7 +63,6 @@ Fuel injector and ignition drive detail:
  - Ignition outputs default polarity for 12V high = dwell
  - Ignition outputs polarity override through connector
  - Ignition outputs configurable in voltage (5V/~12V)
- - Ignition outputs through on board drivers (MAYBE)
 
 Spare IO specs:
 
@@ -128,7 +130,50 @@ Nice to haves:
  - USB power up for board       - dream    (of limited use (turn on the key))
  - LEDs on all digital GPIO     - dream    (good idea, thanks Abe)
 
-TODO: Add design decisions and reasoning in clear language to go with list.
+### Coarse Layout
+
+With our maximum compliment of drivers by the above specs we would have 24 to220s:
+
+ - 12 high z AutoFET injector drivers
+ - 1 fuel pump AutoFET relay driver
+ - 2 5V LDO voltage regulators
+ - 8 PWM AutoFET general purpose drivers
+ - 1 inverted PWM AutoFET 3 wire driver
+
+This fits onto both sides of a 160mm long board perfectly but tightly. If mounting
+holes are requires to be placed at closer spacings then we can reduce the number of
+injector drivers by as much as four and the number of PWM drivers by as much as four.
+Assuming four corner mounting holes, it probably makes sense to drop the four low
+resolution PWM pins and add four extra mounting holes, plus two more that we can
+probably fit anyway. That would give us 40mm centres on the holes and good rigity.
+
+Board and case wise:
+
+ - Front end = end facing the user
+ - Back end = end facing the loom
+
+For a coarse board layout I propose that the following be done:
+
+ - Regulators at the front end of the board
+ - Fuel pump relay drive next to regulators
+ - PWM drivers at the back end of the board
+ - Injector drivers all of one side of board
+ - PWM, FP relay drive and regulators on other
+ - Analogue conditioning 2/3 width of back of board
+ - Analogue conditioning most of the way between back & cpu
+ - Ignition low level drivers 1/3 width of back of board
+ - RPM circuits between ignition drivers and cpu
+ - Power supply filtration adjacent to regulators at front of board
+ - USB mini, opto couplers, FTDI at front of board next to injector drivers
+ - SD card slot at front of board between comms and power filtration
+ - CPU centre and as close to SD/comms/power supply as possible
+ - CPU clock circuits adjacent to the CPU where space is available
+ - MAP and AAP, one on each side of CPU nearer to front of board
+ - MAP and AAP, both taken to bulkhead fittings at back of board
+
+This layout keeps high current and high noise stuff down each side of the board,
+the CPU as far away from the majority of the noise as possible, and the paths of
+sensitive signals as short as possible.
 
 ### History
 
