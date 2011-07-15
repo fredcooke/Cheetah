@@ -93,6 +93,7 @@ Other specs:
  - Keep sub-circuits grouped and outline with silkscreen
  - Reduce component count from 400 to 200 and/or increase features in same board size
  - On board MAP and AAP sensors, both barbed (dual footprint?)
+ - 5v outputs for MAP & TPS each protected with RXEF040 polyfuse (0.4A load, 0.8A trip)
  - CPU regulator always connected to power
  - ADC/Acc regulator enable pin controlled by CPU
  - CEL error light on SM load/run pin
