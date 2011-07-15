@@ -90,6 +90,7 @@ Physical specs:
 
 Other specs:
 
+ - Keep sub-circuits grouped and outline with silkscreen
  - Reduce component count from 400 to 200 and/or increase features in same board size
  - On board MAP and AAP sensors, both barbed (dual footprint?)
  - CPU regulator always connected to power
