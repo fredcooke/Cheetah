@@ -109,7 +109,6 @@ Other specs:
  - Independent filtering of battery reference
  - Physical separation of ADC/CPU from injection/PWM stuff
  - Star connections from regulator(s) to CPU
- - Reverse polarity protection (FET crowbar? sshottky diodes?)
  - Optimised clock circuit as per manual
  - Optimised power CPU power filtering as per manual
  - Optimised ground planes under CPU as per manual
@@ -174,6 +173,27 @@ For a coarse board layout I propose that the following be done:
 This layout keeps high current and high noise stuff down each side of the board,
 the CPU as far away from the majority of the noise as possible, and the paths of
 sensitive signals as short as possible.
+
+### Component Selection
+
+A list of parts with purposes:
+
+ - MC9S12XDP512??? - 112 pin XDP512 CPU - 91 IO pins
+ - LM2937? - constant 5V LDO auto grade reg with 2mA quiescent current
+ - LM2941? - switchable 5V LDO auto grade reg
+ - FT232RL - UART to USB converter
+ - RXEF0?0 - polyfuses for 5V external supplies
+ - MAX99?? - VR/Hall/Optical input conditioners
+ - MPXA6400AP - 20-400kPa MAP sensor SOP footprint, 1369-01 case preferred
+ - MPXAZ6115AP - 15-115kPa AAP sensor SOP footprint, 1369-01 case preferred
+ - VNP10N07 - Fully protected logic level FET or equivalent
+ - HC86? XOR - Ignition output flexibility device
+ - ? 12+V FET Driver - Ignitor low current drives
+ - USB mini - comms connection, need std footprint
+
+More detailed parts to come...
+
+Resistors, capacitors, diodes, headers and connectors to be decided later.
 
 ### History
 
