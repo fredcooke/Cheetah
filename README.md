@@ -190,6 +190,8 @@ A list of parts with purposes:
  - HC86? XOR - Ignition output flexibility device
  - ? 12+V FET Driver - Ignitor low current drives
  - USB mini - comms connection, need std footprint
+ - NOR/XNOR - single gate for combining the extra MAX output with RPM2
+ - Inverter - for 3 wire PWM second driver, can maybe use NOR/XNOR for this too
 
 More detailed parts to come...
 
